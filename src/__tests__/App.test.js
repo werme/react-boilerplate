@@ -3,13 +3,10 @@ import test from 'ava'
 import { renderToStaticMarkup } from 'react-dom/server'
 import App from '../App'
 
-test('It greets the world', t => {
-  const element = React.createElement(App, {
-    greeting: '안영'
-  })
+test('App', t => {
 
-  const output = renderToStaticMarkup(element)
+  const output = renderToStaticMarkup(<App greeting="안영" />)
 
-  t.ok(output.includes('안영 World'),
-    'the greeting is included in the output')
+  t.true(output.includes('안영'),
+    'the passed greeting is included in the output')
 })
