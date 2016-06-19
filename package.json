@@ -5,7 +5,7 @@
     "build": "rm -rf public && NODE_ENV=production webpack --config webpack.config.prod.js",
     "lint": "eslint src",
     "start": "node server.dev.js",
-    "test": "ava src/**/*.test.js -v -r babel-polyfill -r babel-register"
+    "test": "ava"
   },
   "devDependencies": {
     "ava": "0.15.2",
@@ -31,5 +31,18 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
+  },
+  "ava": {
+    "files": [
+      "src/**/__tests__/*.test.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "babel": "inherit"
   }
 }
