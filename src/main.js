@@ -5,25 +5,16 @@ import { AppContainer } from 'react-hot-loader'
 import App from './App'
 import '../css/main.css'
 
-const rootElement = document.getElementById('root')
+const render = () =>
+  ReactDOM.render(
+    <AppContainer>
+      <App />
+    </AppContainer>,
+    document.getElementById('root')
+  )
 
-ReactDOM.render(
-  <AppContainer>
-    <App />
-  </AppContainer>,
-  rootElement
-)
+render()
 
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    // With Webpack 2 and ES modules mode, you can just rerender `App` without
-    // requiring it again.
-    const NextApp = require('./App')
-    ReactDOM.render(
-      <AppContainer>
-        <NextApp />
-      </AppContainer>,
-      rootElement
-    )
-  })
-}
+// Run `render` whenever './App' is updated
+if (module.hot)
+  module.hot.accept('./App', render)

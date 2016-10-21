@@ -1,8 +1,8 @@
-import path  from 'path'
-import webpack  from 'webpack'
-import base  from './base'
+const path = require('path')
+const webpack = require('webpack')
+const base = require('./base')
 
-export default {
+module.exports = {
   ...base,
   devtool: 'cheap-module-eval-source-map',
   entry: [
@@ -19,6 +19,6 @@ export default {
   plugins: [
     ...base.plugins,
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NamedModulesPlugin()
   ]
 }

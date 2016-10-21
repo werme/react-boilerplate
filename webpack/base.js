@@ -1,5 +1,4 @@
-import path from 'path'
-import NyanProgressPlugin from 'nyan-progress-webpack-plugin'
+const path = require('path')
 
 const JS_ROOT = path.resolve(__dirname, '../src')
 
@@ -8,13 +7,8 @@ module.exports = {
     loaders: [
       { test: /\.js$/, loader: 'babel', include: JS_ROOT },
       { test: /\.js$/, loader: 'eslint', include: JS_ROOT },
-      { test: /\.css$/, loader: 'style!css' }
+      { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]
   },
-  eslint: {
-    configFile: '.eslintrc'
-  },
-  plugins: [
-    new NyanProgressPlugin()
-  ]
+  plugins: []
 }

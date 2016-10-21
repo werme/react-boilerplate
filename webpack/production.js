@@ -1,8 +1,8 @@
-import path from 'path'
-import webpack from 'webpack'
-import base from './base'
+const path = require('path')
+const webpack = require('webpack')
+const base = require('./base')
 
-export default {
+module.exports = {
   ...base,
   devtool: 'source-map',
   entry: './src/main',
@@ -12,6 +12,10 @@ export default {
   },
   plugins: [
     ...base.plugins,
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')

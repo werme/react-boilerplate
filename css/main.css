@@ -1,6 +1,5 @@
 
 html {
-  font-size: 62.5%;
   box-sizing: border-box;
 }
 *, *:before, *:after {
@@ -8,5 +7,5 @@ html {
 }
 
 body {
-  font: 1.5rem/1.6 monospace;
+  font: 1em/1.6 monospace;
 }

@@ -1,8 +1,8 @@
-import webpack from 'webpack'
-import WebpackDevServer from 'webpack-dev-server'
-import config from './'
+const webpack = require('webpack')
+const WebpackDevServer = require('webpack-dev-server')
+const config = require('./')
 
-export default new WebpackDevServer(webpack(config), {
+module.exports = new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
   historyApiFallback: true
